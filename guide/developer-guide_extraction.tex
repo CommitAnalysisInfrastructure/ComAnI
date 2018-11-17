@@ -19,7 +19,7 @@ A commit extractor plug-in is responsible for extracting commit information from
 \begin{figure}[ht] % t für top, b = bottom, h = here
 	\centering
 		%trim={<left> <lower> <right> <upper>}
-		\includegraphics[width=\columnwidth,trim={1,7cm 20,4cm 6,9cm 3,1cm},clip]{inserts/abstract_commit_extractor.pdf}
+		\includegraphics[width=\columnwidth,trim={0,7cm 21,7cm 3,9cm 2,9cm},clip]{inserts/comani_abstract_commit_extractor.pdf}
   \caption{\thetool{} \texttt{AbstractCommitExtractor} class}
 	\label{fig:AbstractCommitExtractorClass}
 \end{figure}
@@ -27,6 +27,13 @@ A commit extractor plug-in is responsible for extracting commit information from
 Each commit extractor inherits three attributes: the infrastructure-wide logger, the extraction properties, and the commit queue as shown in Figure~\ref{fig:AbstractCommitExtractorClass}. The \texttt{logger} provides multiple methods for logging general information about the extraction process, warning, error, and debug messages. The amount of information actually shown, e.g., on the command line, depends on the defined log-level in the configuration file (cf. Section~\ref{sec:Execution}). The \texttt{extractionProperties} include all configuration parameters, which start with the prefix ``\texttt{extraction.}'', a property providing the name of the operating system on which the extractor currently runs, and a property for the version control system as specified by the respective configuration parameter in the configuration file (cf. Section~\ref{sec:Execution}). The \texttt{commitQueue} enables the transfer of extracted commits to an analysis. It only provides a single method, which accepts a single \texttt{Commit} instance as a parameter. Hence, the extraction algorithms have to call this method for each extracted commit individually.
 
 Figure~\ref{fig:AbstractCommitExtractorClass} also shows that a commit extractor has to implement a constructor, which accepts a properties and a particular extraction queue instance as parameters, as well as a set of methods for extracting commits and checking whether it is executable in the current environment. Listing~\ref{lst:CommitExtractorBlueprint} introduces a blueprint of a commit extractor, which implements all these required elements.
+
+\ToDo{
+Explain how to guarantee addition of commit to queue:
+  while (!commitQueue.addCommit(commit)) {
+      logger.log(ID, "Waiting to add commit to queue", null, MessageType.DEBUG);
+  }
+}
 
 \begin{figure}[ht]
 	\centering

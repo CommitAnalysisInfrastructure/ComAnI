@@ -1,0 +1,27 @@
+\subsection{Commit Analyzer Plug-ins}
+\label{sec:CommitAnalyzerPlugins}
+\ToDo{
+\begin{itemize}
+	\item Definition and usage of plug-in-specific configuration parameters in introduction of parent section?
+	\item Purpose of plug-in type
+	\item Typical input
+	\item Realization via implementation of abstract class along example
+	\begin{itemize}
+		\item Processing data model element instances
+		\item Storing results
+	\end{itemize}
+\end{itemize}
+}
+
+\begin{figure}[ht] % t für top, b = bottom, h = here
+	\centering
+		%trim={<left> <lower> <right> <upper>}
+		\includegraphics[width=\columnwidth,trim={1,7cm 20,1cm 5,8cm 3,3cm},clip]{inserts/abstract_commit_analyzer.pdf}
+  \caption{\thetool{} \texttt{AbstractCommitAnalyzer} class}
+	\label{fig:AbstractCommitAnalyzerClass}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+		\lstinputlisting[caption={Blueprint of a \thetool{} commit analyzer main class},label=lst:CommitAnalyzerBlueprint,basicstyle=\small,language=Java]{inserts/CommitAnalyzer.java}
+\end{figure}

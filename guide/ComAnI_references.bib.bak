@@ -1,0 +1,147 @@
+% This file was created with JabRef 2.6.
+% Encoding: Cp1252
+
+@MISC{Svn18,
+  author = {{Apache Software Foundation}},
+  title = {Apache Subversion},
+  howpublished = {\url{https://subversion.apache.org/}},
+  year = {2018},
+  note = {Accessed 2018/10/11},
+  owner = {kroeher},
+  timestamp = {2018.10.11}
+}
+
+@MISC{Git18,
+  author = {{Git}},
+  title = {Git Version Control System},
+  howpublished = {\url{https://git-scm.com/}},
+  year = {2018},
+  note = {Accessed 2018/10/11},
+  owner = {kroeher},
+  timestamp = {2018.10.11}
+}
+
+@INPROCEEDINGS{KS17b,
+  author = {Christian Kr\"{o}her and Klaus Schmid},
+  title = {Towards a Better Understanding of Software Product Line Evolution},
+  booktitle = {Softwaretechnik-Trends},
+  year = {2017},
+  volume = {37:2},
+  pages = {40-41},
+  address = {Berlin, Germany},
+  publisher = {Gesellschaft f\"{u}r Informatik e.V., Fachgruppe PARS},
+  abstract = {In contrast to traditional software systems, the evolution of a Software
+	Product Line (SPL) affects not only artifacts like source code or
+	requirements, but also variability information, which supports the
+	customization of these artifacts across different products of the
+	SPL. While some work exists that aims at characterizing the state
+	and evolution of a product line from a feature perspective, this
+	abstracts away the details of code evolution, hence, ignoring aspects
+	like the difference in size of features. In this paper, we present
+	an approach for the extraction and analysis of changes introduced
+	to code, build and variability model artifacts. This approach has
+	been developed for and applied to the Linux product line.},
+  owner = {kroeher},
+  timestamp = {2017.11.03}
+}
+
+@INPROCEEDINGS{KES18a,
+  author = {Christian Kr{\"o}her and Sascha El-Sharkawy and Klaus Schmid},
+  title = {{KernelHaven} - An Experimentation Workbench for Analyzing Software
+	Product Lines},
+  booktitle = {40th International Conference on Software Engineering: Companion
+	Proceedings},
+  year = {2018},
+  pages = {73--76},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  owner = {kroeher},
+  timestamp = {2018.10.12}
+}
+
+@INPROCEEDINGS{KES18b,
+  author = {Christian Kr{\"o}her and Sascha El-Sharkawy and Klaus Schmid},
+  title = {{KernelHaven} - An Open Infrastructure for Product Line Analysis},
+  booktitle = {22nd International Systems and Software Product Line Conference},
+  year = {2018},
+  volume = {2},
+  pages = {5-10},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  owner = {kroeher},
+  timestamp = {2018.10.12}
+}
+
+@INPROCEEDINGS{KGS18,
+  author = {Christian Kr{\"o}her and Lea Gerling and Klaus Schmid},
+  title = {Identifying the Intensity of Variability Changes in Software Product
+	Line Evolution},
+  booktitle = {22nd International Systems and Software Product Line Conference},
+  year = {2018},
+  volume = {1},
+  pages = {54-64},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  owner = {kroeher},
+  timestamp = {2018.10.15}
+}
+
+@TECHREPORT{KS17a,
+  author = {Christian Kr{\"o}her and Klaus Schmid},
+  title = {A Commit-Based Analysis of Software Product Line Evolution: Two Case
+	Studies},
+  institution = {University of Hildesheim},
+  year = {2017},
+  type = {Technical Report},
+  number = {SSE 2/17/E},
+  owner = {kroeher},
+  timestamp = {2017.11.02}
+}
+
+@MISC{Lin18a,
+  author = {{Linux Kernel Organization, Inc.}},
+  title = {The {L}inux Kernel Archives},
+  howpublished = {\url{https://www.kernel.org/}},
+  year = {2018},
+  note = {Accessed 2018/10/15},
+  key = {{Linux Kernel Source Tree}},
+  owner = {kroeher},
+  timestamp = {2017.03.15}
+}
+
+@MISC{Com18a,
+  author = {{Stiftung Unviversity of Hildesheim - Software Systems Engineering}},
+  title = {Variability-centric Commit Extraction and Analysis},
+  howpublished = {\url{https://github.com/SSE-LinuxAnalysis/ComAn}},
+  owner = {kroeher},
+  timestamp = {2018.10.15}
+}
+
+@MISC{Ker18,
+  author = {{Stiftung Unviversity of Hildesheim - Software Systems Engineering}},
+  title = {{KernelHaven}},
+  howpublished = {\url{https://github.com/KernelHaven}},
+  year = {2018},
+  note = {Accessed 2018/10/12},
+  owner = {kroeher},
+  timestamp = {2018.10.12}
+}
+
+@MISC{Lin18b,
+  author = {Linus Torvalds},
+  title = {Linux Kernel Source Tree},
+  howpublished = {\url{https://github.com/torvalds/linux}},
+  year = {2018},
+  note = {Accessed 2018/10/15},
+  owner = {kroeher},
+  timestamp = {2018.10.15}
+}
+
+@comment{jabref-meta: selector_keywords:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+

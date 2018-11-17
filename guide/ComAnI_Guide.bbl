@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{Svn18}
+{Apache Software Foundation}.
+\newblock Apache subversion.
+\newblock \url{https://subversion.apache.org/}, 2018.
+\newblock Accessed 2018/10/11.
+
+\bibitem{Git18}
+{Git}.
+\newblock Git version control system.
+\newblock \url{https://git-scm.com/}, 2018.
+\newblock Accessed 2018/10/11.
+
+\bibitem{KES18a}
+C.~Kr{\"o}her, S.~El-Sharkawy, and K.~Schmid.
+\newblock {KernelHaven} - an experimentation workbench for analyzing software
+  product lines.
+\newblock In {\em 40th International Conference on Software Engineering:
+  Companion Proceedings}, pages 73--76, New York, NY, USA, 2018. ACM.
+
+\bibitem{KES18b}
+C.~Kr{\"o}her, S.~El-Sharkawy, and K.~Schmid.
+\newblock {KernelHaven} - an open infrastructure for product line analysis.
+\newblock In {\em 22nd International Systems and Software Product Line
+  Conference}, volume~2, pages 5--10, New York, NY, USA, 2018. ACM.
+
+\bibitem{KGS18}
+C.~Kr{\"o}her, L.~Gerling, and K.~Schmid.
+\newblock Identifying the intensity of variability changes in software product
+  line evolution.
+\newblock In {\em 22nd International Systems and Software Product Line
+  Conference}, volume~1, pages 54--64, New York, NY, USA, 2018. ACM.
+
+\bibitem{KS17a}
+C.~Kr{\"o}her and K.~Schmid.
+\newblock A commit-based analysis of software product line evolution: Two case
+  studies.
+\newblock Technical Report SSE 2/17/E, University of Hildesheim, 2017.
+
+\bibitem{KS17b}
+C.~Kr\"{o}her and K.~Schmid.
+\newblock Towards a better understanding of software product line evolution.
+\newblock In {\em Softwaretechnik-Trends}, volume 37:2, pages 40--41, Berlin,
+  Germany, 2017. Gesellschaft f\"{u}r Informatik e.V., Fachgruppe PARS.
+
+\bibitem{Lin18a}
+{Linux Kernel Organization, Inc.}
+\newblock The {L}inux kernel archives.
+\newblock \url{https://www.kernel.org/}, 2018.
+\newblock Accessed 2018/10/15.
+
+\bibitem{Ker18}
+{Stiftung Unviversity of Hildesheim - Software Systems Engineering}.
+\newblock {KernelHaven}.
+\newblock \url{https://github.com/KernelHaven}, 2018.
+\newblock Accessed 2018/10/12.
+
+\bibitem{Com18a}
+{Stiftung Unviversity of Hildesheim - Software Systems Engineering}.
+\newblock Variability-centric commit extraction and analysis.
+\newblock \url{https://github.com/SSE-LinuxAnalysis/ComAn}, 2018.
+\newblock Accessed 2018/10/15.
+
+\bibitem{Lin18b}
+L.~Torvalds.
+\newblock Linux kernel source tree.
+\newblock \url{https://github.com/torvalds/linux}, 2018.
+\newblock Accessed 2018/10/15.
+
+\end{thebibliography}

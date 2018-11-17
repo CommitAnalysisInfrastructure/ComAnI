@@ -1,0 +1,17 @@
+# The fully qualified main class name of the commit analyzer
+# to use in the particular ComAnI instance.
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+analysis.analyzer = <Analyzer>
+
+# The path to the directory for saving the analyis results.
+# Each analysis will create its own sub-directory in this
+# directory named by the name of the analyzer and a timestamp
+# to avoid unintended overriding of previous results.
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+analysis.output = <Path>

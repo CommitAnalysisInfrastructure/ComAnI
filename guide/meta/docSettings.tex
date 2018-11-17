@@ -1,0 +1,59 @@
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[flushleft]{threeparttable} % for creating tables with table notes
+\usepackage{tabulary} % for creating tables with pre-defined width and automatic text wrapping
+\usepackage{framed} % for printing gray box illustrating the execution command (see 'Command' below)
+\usepackage{xcolor} % for printing gray box illustrating the execution command (see 'Command' below)
+\usepackage{amstext}
+
+% Table settings
+\usepackage{csvsimple}
+
+%\include{meta/showMargins}
+
+% For include graphics
+\usepackage{graphicx}
+
+\usepackage{hyperref} 
+
+% Spacing
+% Less space before and after floating elements (figures, listings, tables, ...)
+\setlength{\textfloatsep}{4pt plus 1.0pt minus 2pt}
+\renewcommand{\bottomfraction}{.5}
+
+% Custom configuration of enumerations (lists)
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1em}
+\setlist[enumerate]{leftmargin=3ex}
+\setlist[description]{leftmargin=1em}
+
+
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+% Weniger Woerter trennen
+\sloppy
+
+% Balancing last page
+%\usepackage{flushend}
+
+% Command Box
+\colorlet{shadecolor}{gray!25}
+\newcommand{\Command}[1]{
+  %\begin{minipage}[t]{0.925\columnwidth}
+    \begin{snugshade*}
+      \noindent #1
+    \end{snugshade*}
+  %\end{minipage}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                     %%%
+%%% Self-defined Macros %%%
+%%%                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\trim}{\looseness-1}
+\newcommand{\ifDef}{\texttt{\#ifdef}}

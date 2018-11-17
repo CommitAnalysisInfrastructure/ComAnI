@@ -1,0 +1,43 @@
+\ifshowToDos
+  % Force margin par, even if not allowed by acm
+  \usepackage{marginnote} 
+  \setlength{\marginparwidth}{1.5cm}
+  \let\marginpar\marginnote
+  
+  % ToDos
+  \newcommand{\ToDo}[1]{\noindent\fcolorbox{black}{yellow!20!white}{\parbox{.975\columnwidth}{#1}}}
+  \newcommand{\SubjectedToDo}[2]{\ToDo{\textbf{#1:}#2}}
+  \newcommand{\ToDoInline}[1]{\fcolorbox{black}{yellow!20!white}{#1}}
+  \newcommand{\Outline}[1]{\color{blue}{#1}\color{black}}
+  \newcommand{\Problem}[1]{\color{red}{#1}\color{black}}
+  \newcommand{\secSize}[1]{[#1]}
+  
+  % Comments
+  \usepackage[textsize=small,colorinlistoftodos]{todonotes}
+  % Comment as ToDo note per author. First argument is color, second is the text
+  \newcommand{\userComment}[2]{\todo[color=#1!20,linecolor=#1!60,bordercolor=#1!60]{#2}}
+  \newcommand{\ks}[1]{\userComment{orange}{\textbf{KS:} #1}}
+  \newcommand{\se}[1]{\userComment{red}{\textbf{SE:} #1}}
+  \newcommand{\ak}[1]{\userComment{blue}{\textbf{AK:} #1}}
+  \newcommand{\ck}[1]{\userComment{green}{\textbf{CK:} #1}}
+  \newcommand{\sjd}[1]{\userComment{yellow}{\textbf{SYD:} #1}}
+  
+  % Checkmark for ToDos and comments
+  \usepackage{pifont}
+  \newcommand{\cmark}{\ding{51}}
+\else
+  % Disable ToDos
+  \newcommand{\ToDo}[1]{}
+  \newcommand{\SubjectedToDo}[2]{}
+  \newcommand{\ToDoInline}[1]{#1} % Verwende ich für Zahlen, die sich noch ändern können
+  \newcommand{\Outline}[1]{}
+  \newcommand{\Problem}[1]{}
+  \newcommand{\secSize}[1]{}
+  
+  % Disable comments
+  \newcommand{\ks}[1]{}
+  \newcommand{\se}[1]{}
+  \newcommand{\ak}[1]{}
+  \newcommand{\sd}[1]{}
+	\newcommand{\ck}[1]{}
+\fi

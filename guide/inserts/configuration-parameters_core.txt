@@ -1,0 +1,34 @@
+# The path to the directory, which contains the ComAnI plug-ins,
+# like the available extractors and analyzers.
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+core.plugins_dir = <Path>
+
+# The identifyer of the version control system (VCS), which the
+# repository as the input for commit extraction relies on.
+# Commit extractors and analyzers need to support the VCS. See
+# the respective documentations of the desired plug-ins.
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+core.version_control_system = <VCS_Id>
+
+# The number defining a particular log-level and, hence, the
+# amount of information the infrastructure as well as the plug-ins
+# provide at runtime.
+# Valid values are:
+#     0 - SILENT: No information is provided and, hence, there will
+#                 be no message at all except for initial setup
+#                 errors
+#     1 - STANDARD: Basic information, warnings, and errors are
+#                   provided
+#     2 - DEBUG: Similar to STANDARD, but additional debug
+#                information is provided
+#
+# Type: optional
+# Default value: 1
+# Related parameters: none
+core.log_level = <0|1|2>

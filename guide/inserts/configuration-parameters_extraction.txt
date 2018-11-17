@@ -1,0 +1,57 @@
+# The fully qualified main class name of the commit extractor
+# to use in the particular ComAnI instance. Although being
+# mandatory, the infrastructure will ignore this parameter, if
+# reuse is enabled. 
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+extraction.extractor = <Extractor>
+
+# The path to the directory denoting the root of a software
+# repository from which the commit extractor will extract the
+# commits. Although being mandatory, extractors will ignore
+# this parameter in interactive mode.
+#
+# Type: mandatory
+# Default value: none
+# Related parameters: none
+extraction.input = <Path>
+
+# The path to and name of the file containing a list of commit
+# numbers. Extractors will try to extract the corresponding
+# commits from the specified repository exclusively.
+#
+# Type: optional
+# Default value: none
+# Related parameters: none
+extraction.commit_list = <Path>
+
+# The path to the directory for saving extracted commits.
+# Defining this parameter enables the caching feature for the
+# extraction, which allows saving extracted commits as individual
+# files and reuse them in future analyses, while the current
+# analysis processes the extracted commits as usual. This avoids
+# repeating the extraction of the same commits for future analyses.
+#
+# IMPORTANT: the infrastructure deletes the content of this
+# directory, if it is not emtpy.
+#
+# Type: optional
+# Default value: none
+# Related parameters: extraction.reuse
+extraction.cache = <Path>
+
+# The path to the directory containing cached commits. Defining
+# this parameter enables the caching feature for the extraction,
+# which leads to a reuse of previously extracted commits instead of
+# executing the defined extractor. This avoids repeating the
+# extraction of the same commits for future analyses.
+#
+# IMPORTANT: if caching and reusing is defined at the same time,
+# caching is performed and the analysis uses extracted commits.
+#
+# Type: optional
+# Default value: none
+# Related parameters: none
+extraction.reuse = <Path>

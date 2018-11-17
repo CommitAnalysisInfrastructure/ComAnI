@@ -1,0 +1,61 @@
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref} 
+% !TeX spellcheck = en_US
+\documentclass[11pt]{article}
+% PAGE LAYOUT DEFINITION - Further information: https://www.sharelatex.com/blog/2013/08/06/thesis-series-pt2.html
+\RequirePackage[
+	a4paper, % Paper size
+	inner=35mm, % Margin at the inner side of a page
+	outer=25mm, % Margin at the outer side of a page
+	top=25mm, % Top margin
+	bottom=20mm, % Bottom margin
+	headheight=14pt % Allow more space to print headers adequately
+]{geometry}
+
+% report uses chapters, article starts with sections
+% Document Setup
+\input{meta/docSettings}
+\input{meta/lstSettings}
+\input{meta/commands}
+% ToDos & Comments
+\usepackage{ifthen}
+\newboolean{showToDos}
+\setboolean{showToDos}{false} % Switch for en-/dis-abling comments/ToDos
+\input{meta/todos}
+
+
+\begin{document}
+	\input{title}
+	\input{acknowledgment}
+	\setcounter{page}{2}
+	\clearpage
+	\tableofcontents
+	\clearpage
+	\listoffigures
+	%\clearpage %use single page for all lists as long as there is not much content
+	\lstlistoflistings
+	%\clearpage
+	\listoftables
+
+	% Core content
+	\clearpage
+	\input{introduction}
+	\clearpage
+	\input{overview}
+	\clearpage
+	\input{user-guide}
+	\clearpage
+	\input{developer-guide}
+
+	% Literature
+	\clearpage
+	\phantomsection
+	\addcontentsline{toc}{part}{References}
+	\bibliographystyle{abbrv}
+	\bibliography{ComAnI_references}
+
+	% Appendices
+	%\clearpage
+	%\phantomsection
+	%\addcontentsline{toc}{part}{Appendix} 
+	%\input{appendix}
+\end{document}

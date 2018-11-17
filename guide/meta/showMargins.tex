@@ -1,0 +1,20 @@
+% See: https://tex.stackexchange.com/a/271294
+\usepackage{showframe}
+\usepackage{etoolbox}
+\newlength\Fcolumnseprule
+\setlength\Fcolumnseprule{0.4pt}
+
+\makeatletter
+\newcommand\ShowInterColumnFrame{
+\patchcmd{\@outputdblcol}
+  {{\normalcolor\vrule \@width\columnseprule}}
+  {\vrule \@width\Fcolumnseprule\hfil
+    {\normalcolor\vrule \@width\columnseprule}
+    \hfil\vrule \@width\Fcolumnseprule
+  }
+  {}
+  {}
+}
+
+\makeatother
+\ShowInterColumnFrame

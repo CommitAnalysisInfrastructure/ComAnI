@@ -5,6 +5,11 @@ ComAnI enables conducting an analysis for a software hosted in a Git repository 
 
 The [ComAnI Guide](/guide/ComAnI_Guide.pdf) provides more information about the capabilities of the infrastructure. Note that this guide is currently incomplete and will be updated in future to cover all aspects of the infrastructure.
 
+*Available Plug-ins:*
+- [GitCommitExtractor](https://github.com/CommitAnalysisInfrastructure/GitCommitExtractor)
+- [SvnCommitExtractor](https://github.com/CommitAnalysisInfrastructure/SvnCommitExtractor)
+- [VariabilityChangeAnalyzer](https://github.com/CommitAnalysisInfrastructure/VariabilityChangeAnalyzer)
+
 ## Installation
 Download the [ComAnI.jar](/release/ComAnI.jar) file from the release directory and save it to a directory of your choice on your machine.
 
@@ -13,10 +18,10 @@ Download the [ComAnI.jar](/release/ComAnI.jar) file from the release directory a
 
 ## Execution
 The infrastructure can be executed as a typical Java Jar-file, which expects the following parameters:
-- Mandatory: A configuration (properties) file, which defines the particular ComAnI instance and its setup. The available configuration options and their valid valued are described in the ComAnI Guide.
+- Mandatory: A configuration (properties) file, which defines the particular ComAnI instance and its setup. The available configuration options and their valid values are described in the [ComAnI Guide](/guide/ComAnI_Guide.pdf).
 - Optional: the `-i` option can be used to perform a single commit extraction. It has to be followed by the commit information, which is terminated by a last line containing the string “!q!”.
 
-Examples:
+*Examples:*
 
 `java -jar ComAnI.jar /path/to/configuration-file.properties`
 

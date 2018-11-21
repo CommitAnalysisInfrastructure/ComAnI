@@ -14,13 +14,12 @@ Download the [ComAnI.jar](/release/ComAnI.jar) file from the release directory a
 ## Execution
 The infrastructure can be executed as a typical Java Jar-file, which expects the following parameters:
 - Mandatory: A configuration (properties) file, which defines the particular ComAnI instance and its setup. The available configuration options and their valid valued are described in the ComAnI Guide.
-- Optional: the “-i” option can be used to perform a single commit extraction. It has to be followed by the commit information, which is terminated by a last line containing the string “!q!”.
+- Optional: the `-i` option can be used to perform a single commit extraction. It has to be followed by the commit information, which is terminated by a last line containing the string “!q!”.
 
 Examples:
-```Properties
-java -jar ComAnI.jar /path/to/configuration-file.properties
-```
+
+`java -jar ComAnI.jar /path/to/configuration-file.properties`
+
 or
-```Properties
-java -jar ComAnI.jar /path/to/configuration-file.properties –i <CommitContent>\n!q!
-```
+
+`java -jar ComAnI.jar /path/to/configuration-file.properties –i <CommitContent>\n!q!`

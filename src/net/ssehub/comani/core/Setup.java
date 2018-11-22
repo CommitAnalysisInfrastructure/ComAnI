@@ -14,6 +14,7 @@ package net.ssehub.comani.core;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
@@ -195,6 +196,7 @@ public class Setup {
      * @throws SetupException if initializing this instance fails due to missing or false information
      */
     private void init(String[] args) throws SetupException {
+        // TODO add a Java version check which ensures that it is supported by ComAnI
         if (args.length == 1) {
             // A single argument can only be the properties file for setting up this instance
             createProperties(args[0]);
@@ -325,23 +327,7 @@ public class Setup {
             throw new SetupException("The operating system could not be determined");
         }
         // Check if plug-ins directory is valid
-        String pluginsDirectoryPath = coreProperties.getProperty(PROPERTY_CORE_PLUGINS_DIR);
-        if (pluginsDirectoryPath != null && !pluginsDirectoryPath.isEmpty()) {
-            File pluginsDirectory = new File(pluginsDirectoryPath);
-            if (pluginsDirectory.exists()) {
-                if (pluginsDirectory.isDirectory()) {
-                    if (pluginsDirectory.list().length == 0) {
-                        throw new SetupException("The plug-ins directory is empty");
-                    }
-                } else {
-                    throw new SetupException("The plug-ins directory path does not denote a directory");
-                }
-            } else {
-                throw new SetupException("The plug-ins directory does not exist");
-            }
-        } else {
-            throw new SetupException("The plug-ins directory is not specified");
-        }
+        checkCorePluginsDirectory();
         // Check if log-level is valid; if not, use default level
         String logLevelString = coreProperties.getProperty(PROPERTY_CORE_LOG_LEVEL);
         if (logLevelString != null) {
@@ -367,6 +353,43 @@ public class Setup {
         }
         // As the log-level is now correctly set, print the infrastructure start message
         logger.logInfrastructureStart(new Date());
+    }
+    
+    /**
+     * Checks if plug-ins directory is valid and contains Jar-files.
+     * 
+     * @throws SetupException if check fails
+     */
+    private void checkCorePluginsDirectory() throws SetupException {
+        String pluginsDirectoryPath = coreProperties.getProperty(PROPERTY_CORE_PLUGINS_DIR);
+        if (pluginsDirectoryPath != null && !pluginsDirectoryPath.isEmpty()) {
+            File pluginsDirectory = new File(pluginsDirectoryPath);
+            if (pluginsDirectory.exists()) {
+                if (pluginsDirectory.isDirectory()) {
+                    File[] jarFiles = pluginsDirectory.listFiles(new FilenameFilter() {
+                        @Override
+                        public boolean accept(File dir, String name) {
+                            boolean acceptFile = false;
+                            if (name.toLowerCase().endsWith(".jar")) {
+                                acceptFile = true;
+                            }
+                            return acceptFile;
+                        }
+                    });
+                    if (jarFiles == null) {
+                        throw new SetupException("I/O error occured while checking the plug-ins directory");
+                    } else if (jarFiles.length == 0) {
+                        throw new SetupException("The plug-ins directory does not contain any Jar-files");
+                    }
+                } else {
+                    throw new SetupException("The plug-ins directory path does not denote a directory");
+                }
+            } else {
+                throw new SetupException("The plug-ins directory does not exist");
+            }
+        } else {
+            throw new SetupException("The plug-ins directory is not specified");
+        }
     }
     
     /**

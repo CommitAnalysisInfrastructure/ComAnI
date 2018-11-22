@@ -12,14 +12,13 @@
  */
 package net.ssehub.comani.analysis;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
 import net.ssehub.comani.core.AbstractManager;
 import net.ssehub.comani.core.Logger;
 import net.ssehub.comani.core.Logger.MessageType;
 import net.ssehub.comani.data.CommitQueue;
-import net.ssehub.comani.data.IAnalysisQueue;
+import net.ssehub.comani.utility.InfrastructureUtilities;
 
 /**
  * This class manages the entire commit analysis process.
@@ -75,7 +74,9 @@ public class AnalysisManager extends AbstractManager {
     @Override
     public boolean setup() {
         boolean setupSuccessful = false;
-        if (instantiateCommitAnalyzer()) {
+        commitAnalyzer = InfrastructureUtilities.getInstance().instantiateAnalyzer(plugInClassName, properties,
+                commitQueue);
+        if (commitAnalyzer != null) {
             logger.log(ID, "Commit analyzer \"" + plugInClassName + "\" instantiated", null,
                     Logger.MessageType.INFO);
             setupSuccessful = true;
@@ -88,29 +89,16 @@ public class AnalysisManager extends AbstractManager {
      */
     @Override
     public boolean go() {
+        if (!commitQueue.isOpen()) {
+            // Wait until ExtractionManager opens the commit queue
+            logger.log(ID, "Waiting for commit queue to be open", null, MessageType.INFO);
+            while (!commitQueue.isOpen()) {
+                logger.log(ID, "Still waiting for commit queue to be open", null, MessageType.DEBUG);                
+            }
+        }
         logger.log(ID, "Analysis started", null, MessageType.INFO);
         boolean analysisSuccessful = commitAnalyzer.analyze();
         logger.log(ID, "Analysis finished", null, MessageType.INFO);
         return analysisSuccessful;
-    }
-    
-    /**
-     * Instantiates the desired commit analyzer defined by the given main class name.
-     * 
-     * @return <code>true</code> if instantiating the desired analyzer was successful; <code>false</code> otherwise
-     */
-    private boolean instantiateCommitAnalyzer() {
-        try {
-            @SuppressWarnings("unchecked")
-            Class<? extends AbstractCommitAnalyzer> commitAnalyzerClass = 
-                    (Class<? extends AbstractCommitAnalyzer>) Class.forName(plugInClassName);
-            IAnalysisQueue analysisQueue = commitQueue;
-            commitAnalyzer = commitAnalyzerClass.getConstructor(Properties.class, IAnalysisQueue.class)
-                    .newInstance(properties, analysisQueue);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-            logger.logException(ID, "Instantiating \"" + plugInClassName + "\" failed", e);
-        }
-        return (commitAnalyzer != null);
     }
 }

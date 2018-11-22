@@ -14,7 +14,6 @@ package net.ssehub.comani.extraction;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,8 +25,8 @@ import net.ssehub.comani.data.Commit;
 import net.ssehub.comani.data.CommitQueue;
 import net.ssehub.comani.data.CommitQueue.QueueState;
 import net.ssehub.comani.data.CommitSerializer;
-import net.ssehub.comani.data.IExtractionQueue;
 import net.ssehub.comani.utility.FileUtilities;
+import net.ssehub.comani.utility.InfrastructureUtilities;
 
 /**
  * This class manages the entire commit extraction process.
@@ -105,7 +104,9 @@ public class ExtractionManager extends AbstractManager {
                     "No commit extractor instantiated", Logger.MessageType.INFO);
         } else {
             // No reusable commits available, hence, we need the extractor
-            if (instantiateCommitExtractor()) {
+            commitExtractor = InfrastructureUtilities.getInstance().instantiateExtractor(plugInClassName, properties,
+                    commitQueue);
+            if (commitExtractor != null) {
                 setupSuccessful = true;
                 logger.log(ID, "Commit extractor \"" + plugInClassName + "\" instantiated", null,
                         Logger.MessageType.INFO);
@@ -219,25 +220,5 @@ public class ExtractionManager extends AbstractManager {
             }
         }
         return extractionSuccessful;
-    }
-    
-    /**
-     * Instantiates the desired commit extractor defined by the given main class name.
-     * 
-     * @return <code>true</code> if instantiating the desired extractor was successful; <code>false</code> otherwise
-     */
-    private boolean instantiateCommitExtractor() {
-        try {
-            @SuppressWarnings("unchecked")
-            Class<? extends AbstractCommitExtractor> commitExtractorClass = 
-                    (Class<? extends AbstractCommitExtractor>) Class.forName(plugInClassName);
-            IExtractionQueue extractionQueue = commitQueue;
-            commitExtractor = commitExtractorClass.getConstructor(Properties.class, IExtractionQueue.class)
-                    .newInstance(properties, extractionQueue);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-            logger.logException(ID, "Instantiating \"" + plugInClassName + "\" failed", e);
-        }
-        return (commitExtractor != null);
     }
 }

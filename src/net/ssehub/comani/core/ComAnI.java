@@ -94,28 +94,27 @@ public class ComAnI {
         String pluginsDirectoryPath = coreProperties.getProperty(Setup.PROPERTY_CORE_PLUGINS_DIR);
         // Check for existence of plug-ins directory is done in setup already
         File pluginsDirectory = new File(pluginsDirectoryPath);
-        if (InfrastructureUtilities.getInstance().updateClasspath(pluginsDirectory)) {
-            CommitQueue commitQueue = new CommitQueue();
-            ExtractionManager extractionManager = 
-                    new ExtractionManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),
-                            coreProperties.getProperty(Setup.PROPERTY_CORE_VERSION_CONTROL_SYSTEM),
-                            setup.getExtractionProperties(), commitQueue, setup.getCommitString());                
-            AnalysisManager analysisManager = 
-                    new AnalysisManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),
-                            coreProperties.getProperty(Setup.PROPERTY_CORE_VERSION_CONTROL_SYSTEM),
-                            setup.getAnalysisProperties(), commitQueue);
-            if (extractionManager.isReady() && analysisManager.isReady()) {                    
-                extractionManager.start();
-                analysisManager.start();
-                try {
-                    extractionManager.join();
-                    analysisManager.join();
-                    if (extractionManager.noErrors() && analysisManager.noErrors()) {
-                        runSuccessful = true;
-                    }
-                } catch (InterruptedException e) {
-                    logger.logException(ID, "Extraction or analysis interrupted", e);
+        InfrastructureUtilities.getInstance().setPluginsDirectory(pluginsDirectory);
+        CommitQueue commitQueue = new CommitQueue();
+        ExtractionManager extractionManager = 
+                new ExtractionManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),
+                        coreProperties.getProperty(Setup.PROPERTY_CORE_VERSION_CONTROL_SYSTEM),
+                        setup.getExtractionProperties(), commitQueue, setup.getCommitString());                
+        AnalysisManager analysisManager = 
+                new AnalysisManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),
+                        coreProperties.getProperty(Setup.PROPERTY_CORE_VERSION_CONTROL_SYSTEM),
+                        setup.getAnalysisProperties(), commitQueue);
+        if (extractionManager.isReady() && analysisManager.isReady()) {                    
+            extractionManager.start();
+            analysisManager.start();
+            try {
+                extractionManager.join();
+                analysisManager.join();
+                if (extractionManager.noErrors() && analysisManager.noErrors()) {
+                    runSuccessful = true;
                 }
+            } catch (InterruptedException e) {
+                logger.logException(ID, "Extraction or analysis interrupted", e);
             }
         }
         return runSuccessful;

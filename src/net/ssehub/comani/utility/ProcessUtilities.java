@@ -64,7 +64,7 @@ public class ProcessUtilities {
     
     /**
      * This class provides the results of the execution of a command via 
-     * {@link ProcessUtilities#executeCommand(String, File)}. These results subsume the <b>command</b> and the 
+     * {@link ProcessUtilities#executeCommand(String[], File)}. These results subsume the <b>command</b> and the 
      * <b>working directory</b> used for the execution of the subprocess, the <b>standard output</b> and
      * <b>error output</b> data provided by this subprocess, the <b>possible exception</b> thrown during the execution
      * of the subprocess, and the <b>exit value</b> of the subprocess.
@@ -75,14 +75,14 @@ public class ProcessUtilities {
     public class ExecutionResult {
         
         /**
-         * The command that was executed by {@link ProcessUtilities#executeCommand(String, File)} and provided this
+         * The command that was executed by {@link ProcessUtilities#executeCommand(String[], File)} and provided this
          * result.
          */
         private String command;
         
         /**
          * The absolute path of the working directory of the subprocess executed by 
-         * {@link ProcessUtilities#executeCommand(String, File)}, or <code>null</code> if no particular working
+         * {@link ProcessUtilities#executeCommand(String[], File)}, or <code>null</code> if no particular working
          * directory was given. This means that the subprocess was executed in the directory in which the tool is
          * executed.
          */
@@ -115,10 +115,10 @@ public class ProcessUtilities {
         /**
          * Constructs a new instance of this {@link ExecutionResult}.
          * 
-         * @param command the command that was executed by {@link ProcessUtilities#executeCommand(String, File)} and
+         * @param command the command that was executed by {@link ProcessUtilities#executeCommand(String[], File)} and
          *        provided this result
          * @param workingDirectory the absolute path of the working directory of the subprocess executed by 
-         *        {@link ProcessUtilities#executeCommand(String, File)}, or <code>null</code> if no particular working
+         *        {@link ProcessUtilities#executeCommand(String[], File)}, or <code>null</code> if no particular working
          *        directory was given.
          */
         private ExecutionResult(String command, String workingDirectory) {
@@ -169,7 +169,7 @@ public class ProcessUtilities {
         }
         
         /**
-         * Returns the {@link #command} executed by {@link ProcessUtilities#executeCommand(String, File)}, which
+         * Returns the {@link #command} executed by {@link ProcessUtilities#executeCommand(String[], File)}, which
          * provided this result.
          * 
          * @return the string representing the executed command
@@ -179,7 +179,7 @@ public class ProcessUtilities {
         }
         
         /**
-         * Returns the {@link #workingDirectory} used by {@link ProcessUtilities#executeCommand(String, File)} to
+         * Returns the {@link #workingDirectory} used by {@link ProcessUtilities#executeCommand(String[], File)} to
          * executed the {@link #command}.
          * 
          * @return the absolute path to the working directory of the subprocess or <code>null</code> if no particular
@@ -246,23 +246,27 @@ public class ProcessUtilities {
     /**
      * Executes the given command as a {@link Process} in the current {@link Runtime}.
      * 
-     * @param command the command that shall be executed; should never be <code>null</code>
+     * @param command the command that shall be executed; should never be <i>empty</i> or <code>null</code> itself as
+     *        well as any of its elements
      * @param workingDirectory the working directory of the process created by this method for executing the given
      *        command; can be <code>null</code> if the process should use the directory in which the tool is executed
      * @return the {@link ExecutionResult} of the process executing the given command; never <code>null</code>
      */
-    public synchronized ExecutionResult executeCommand(String command, File workingDirectory) {
+    public synchronized ExecutionResult executeCommand(String[] command, File workingDirectory) {
+        String commandString = getCommandString(command);
         ExecutionResult executionResult;
         if (workingDirectory != null) {
-            executionResult = new ExecutionResult(command, workingDirectory.getAbsolutePath());
+            executionResult = new ExecutionResult(commandString, workingDirectory.getAbsolutePath());
         } else {
-            executionResult = new ExecutionResult(command, null);
+            executionResult = new ExecutionResult(commandString, null);
         }
         Process process = null;
         InputStream inputStream = null;
         InputStream errorStream = null;
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        processBuilder = processBuilder.directory(workingDirectory);
         try {
-            process = Runtime.getRuntime().exec(command, null, workingDirectory);
+            process = processBuilder.start();
             // Read the standard output and save it to the result
             inputStream = process.getInputStream();
             executionResult.setStandardOutputData(readStream(inputStream));
@@ -271,12 +275,18 @@ public class ProcessUtilities {
             executionResult.setErrorOutputData(readStream(errorStream));
             // Get the actual process exit value and save it to the result
             executionResult.setProcessExitValue(process.waitFor());
+        } catch (NullPointerException e) {
+            logger.logException(ID, "An element of the command list of command \"" + commandString + "\" is null", e);
+        } catch (IndexOutOfBoundsException e) {
+            logger.logException(ID, "The command to execute is an empty list", e);
+        } catch (SecurityException e) {
+            logger.logException(ID, "Existing security manager detected an issue", e);
+        } catch (IOException e) {
+            logger.logException(ID, "An I/O error occured during the execution of command \"" + commandString + "\"",
+                    e);
         } catch (InterruptedException e) {
             executionResult.setExecutionException(e);
-            logger.logException(ID, "Executing command \"" + command + "\" interrupted", e);
-        } catch (IOException e) {
-            executionResult.setExecutionException(e);
-            logger.logException(ID, "Executing command \"" + command + "\" failed", e);
+            logger.logException(ID, "Waiting for execution of command \"" + commandString + "\" interrupted", e);
         } finally {
             if (inputStream != null) {
                 try {
@@ -338,5 +348,46 @@ public class ProcessUtilities {
             }
         }
         return streamData;
+    }
+    
+    /**
+     * Returns an extended array by appending the given element at the end of the given array. This method is, in
+     * particular, useful, if a command has to be executed via {@link #executeCommand(String[], File)}, which consists
+     * of multiple parts that have to be combined dynamically, e.g., at runtime.
+     *  
+     * @param command the array to extend
+     * @param commandElement the element to be added at the end of array
+     * @return a new array, which consists of the given array extended by the given element
+     */
+    public synchronized String[] extendCommand(String[] command, String commandElement) {
+        String[] extendedCommand = new String[command.length + 1];
+        for (int i = 0; i < command.length; i++) {
+            extendedCommand[i] = command[i];
+        }
+        extendedCommand[command.length] = commandElement;
+        return extendedCommand;
+    }
+    
+    /**
+     * Returns a single string consisting of the elements of the given array in ascending order of their index separated
+     * by a single whitespace. This method is, in particular, useful, if a command executed via 
+     * {@link #executeCommand(String[], File)} has to be logged or printed.
+     * 
+     * @param command the array providing the elements for concatenation of a single string
+     * @return a single string consisting of the elements of the given array separated by whitespaces or
+     *         <code>null</code>, if the array is <code>null</code> or <i>empty</i>
+     */
+    public synchronized String getCommandString(String[] command) {
+        String commandString = null;
+        if (command != null && command.length > 0) {
+            StringBuilder commandStringBuilder = new StringBuilder();
+            commandStringBuilder.append(command[0]);
+            for (int i = 1; i < command.length; i++) {
+                commandStringBuilder.append(" ");
+                commandStringBuilder.append(command[i]);
+            }
+            commandString = commandStringBuilder.toString();
+        }
+        return commandString;
     }
 }

@@ -14,7 +14,7 @@ The [ComAnI Guide](/guide/ComAnI_Guide.pdf) provides more information about the 
 Download the [ComAnI.jar](/release/ComAnI.jar) file from the release directory and save it to a directory of your choice on your machine.
 
 *Requirements:*
-- Java 8 or equivalent has to be installed (more recent versions will be supported in future)
+- Java 8 or higher (or equivalents, like OpenJDK)
 
 ## Execution
 The infrastructure can be executed as a typical Java Jar-file, which expects the following parameters:

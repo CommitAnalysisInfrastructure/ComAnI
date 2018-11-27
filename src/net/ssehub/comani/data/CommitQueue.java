@@ -45,7 +45,7 @@ public class CommitQueue implements IExtractionQueue, IAnalysisQueue {
      * The maximum number of {@link Commit} elements this queue contains. This value limits the addition of elements to
      * prevent memory problems.
      */
-    private static final int MAX_QUEUE_ELEMENTS = 1000;
+    private static final int MAX_QUEUE_ELEMENTS = 10;
 
     /**
      * The current {@link QueueState} of this queue. 

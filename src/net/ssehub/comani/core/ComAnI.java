@@ -95,7 +95,9 @@ public class ComAnI {
         // Check for existence of plug-ins directory is done in setup already
         File pluginsDirectory = new File(pluginsDirectoryPath);
         InfrastructureUtilities.getInstance().setPluginsDirectory(pluginsDirectory);
-        CommitQueue commitQueue = new CommitQueue();
+        // Check for existence and validity of max. number of elements is done in setup already
+        CommitQueue commitQueue = new CommitQueue(
+                Integer.parseInt(coreProperties.getProperty(Setup.PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS)));
         ExtractionManager extractionManager = 
                 new ExtractionManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),
                         coreProperties.getProperty(Setup.PROPERTY_CORE_VERSION_CONTROL_SYSTEM),

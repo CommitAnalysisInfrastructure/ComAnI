@@ -12,7 +12,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1654
-NormalPos.bottom=695
+NormalPos.bottom=683
 Class=LaTeXView
 Document=user-guide_installation.tex
 
@@ -30,7 +30,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1654
-NormalPos.bottom=695
+NormalPos.bottom=683
 Class=LaTeXView
 Document=meta\commands.tex
 
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1654
-NormalPos.bottom=695
+NormalPos.bottom=683
 Class=LaTeXView
 Document=meta\docSettings.tex
 
@@ -66,7 +66,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1654
-NormalPos.bottom=695
+NormalPos.bottom=683
 Class=LaTeXView
 Document=title.tex
 
@@ -84,7 +84,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1654
-NormalPos.bottom=695
+NormalPos.bottom=683
 Class=LaTeXView
 Document=user-guide_execution.tex
 

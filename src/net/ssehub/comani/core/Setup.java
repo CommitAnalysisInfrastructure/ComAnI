@@ -64,6 +64,13 @@ public class Setup {
     public static final String PROPERTY_CORE_LOG_LEVEL = "core.log_level";
     
     /**
+     * The string representation of the property's key identifying the user-defined maximum number of elements (commits)
+     * in the {@link net.ssehub.comani.data.CommitQueue}. This is an optional property, hence, if not specified, no
+     * further actions are required.
+     */
+    public static final String PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS = "core.commit_queue.max_elements";
+    
+    /**
      * The string representation of the property's key identifying the user-defined extractor main class name.
      */
     public static final String PROPERTY_EXTRACTION_CLASS = "extraction.extractor";
@@ -351,6 +358,24 @@ public class Setup {
             coreProperties.put(PROPERTY_CORE_LOG_LEVEL, 1);
             logger.log(ID, "Log-level not specified", "Using standard log-level", MessageType.WARNING);
         }
+        // Check if maximum number of commit queue elements is valid
+        String maxCommitQueueElementsString = coreProperties.getProperty(PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS);
+        if (maxCommitQueueElementsString != null) {
+            try {
+                int maxCommitQueueElements = Integer.parseInt(maxCommitQueueElementsString);
+                if (maxCommitQueueElements < 1 || maxCommitQueueElements > 100000) {
+                    throw new SetupException("Maximum number of commit queue elements out of range: " 
+                        + maxCommitQueueElements + " - should be between 1 and 100000");
+                }
+            } catch (NumberFormatException e) {
+                throw new SetupException("Maximum number of commit queue elements is not a number");
+            }
+        } else {
+            // No exception needed, use default number (10)
+            coreProperties.put(PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS, 10);
+            logger.log(ID, "Maximum number of commit queue elements not specified", "Using default maximum number: 10",
+                    MessageType.WARNING);
+        }    
         // As the log-level is now correctly set, print the infrastructure start message
         logger.logInfrastructureStart(new Date());
     }

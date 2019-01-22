@@ -42,10 +42,10 @@ public class CommitQueue implements IExtractionQueue, IAnalysisQueue {
     public enum QueueState { INIT, OPEN, CLOSED };
     
     /**
-     * The maximum number of {@link Commit} elements this queue contains. This value limits the addition of elements to
-     * prevent memory problems.
+     * The maximum number of {@link Commit} elements this queue manages simultaneously. This value limits the addition
+     * of elements (blocking the commit extractor), e.g., to prevent memory problems. 
      */
-    private static final int MAX_QUEUE_ELEMENTS = 10;
+    private int maxQueueElements;
 
     /**
      * The current {@link QueueState} of this queue. 
@@ -75,9 +75,14 @@ public class CommitQueue implements IExtractionQueue, IAnalysisQueue {
     
     /**
      * Constructs an empty commit queue.
+     * 
+     * @param maxElements the maximum number of {@link Commit} elements this queue manages simultaneously; this value
+     *        has to be between 1 and 100.000, which is not checked here, but during
+     *        {@link net.ssehub.comani.core.Setup}. 
      */
-    public CommitQueue() {
+    public CommitQueue(int maxElements) {
         state = QueueState.INIT;
+        maxQueueElements = maxElements;
         commitsCacheDirectory = null;
         prepareClose = false;
         commits = new LinkedList<Commit>();
@@ -147,7 +152,7 @@ public class CommitQueue implements IExtractionQueue, IAnalysisQueue {
     public boolean addCommit(Commit commit) {
         synchronized (this) {
             boolean additionSuccessful = false;
-            if (state == QueueState.OPEN && !prepareClose && commits.size() < MAX_QUEUE_ELEMENTS) {
+            if (state == QueueState.OPEN && !prepareClose && commits.size() < maxQueueElements) {
                 additionSuccessful = commits.add(commit);
                 if (commitsCacheDirectory != null) {
                     // Caching is enabled, which should save extracted commits to the directory above

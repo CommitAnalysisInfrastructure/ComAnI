@@ -22,7 +22,7 @@ import net.ssehub.comani.data.IAnalysisQueue;
  * This abstract class defines the methods to be implemented by and the common elements, like the global {@link Logger},
  * for each specific commit analyzer.
  *  
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public abstract class AbstractCommitAnalyzer {

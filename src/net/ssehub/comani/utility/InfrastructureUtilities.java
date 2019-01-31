@@ -30,7 +30,7 @@ import net.ssehub.comani.extraction.AbstractCommitExtractor;
 /**
  * This class provides utility methods for the main infrastructure, like updating the classpath.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class InfrastructureUtilities {

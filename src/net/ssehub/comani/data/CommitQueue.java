@@ -20,7 +20,7 @@ import java.util.List;
  * This class realizes a commit queue. A commit extractor supplies this queue with {@link Commit} objects, which a
  * commit analyzer consumes.
  *  
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class CommitQueue implements IExtractionQueue, IAnalysisQueue {

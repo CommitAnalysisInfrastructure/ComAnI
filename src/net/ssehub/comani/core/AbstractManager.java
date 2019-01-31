@@ -20,7 +20,7 @@ import net.ssehub.comani.data.CommitQueue;
 /**
  * This abstract class defines common methods and elements of the specific commit extraction and analysis managers.
  *  
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public abstract class AbstractManager extends Thread {

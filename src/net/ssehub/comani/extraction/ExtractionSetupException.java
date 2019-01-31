@@ -15,7 +15,7 @@ package net.ssehub.comani.extraction;
 /**
  * Custom exception indicating and describing problems while setting-up an extractor.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class ExtractionSetupException extends Exception {

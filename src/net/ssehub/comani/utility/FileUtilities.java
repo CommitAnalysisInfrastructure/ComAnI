@@ -27,7 +27,7 @@ import net.ssehub.comani.core.Logger.MessageType;
 /**
  * This class provides utility methods for creating, deleting, and checking files and directories.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class FileUtilities {

@@ -15,7 +15,7 @@ package net.ssehub.comani.analysis;
 /**
  * Custom exception indicating and describing problems while setting-up an analysis.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class AnalysisSetupException extends Exception {

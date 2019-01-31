@@ -20,7 +20,7 @@ import java.util.List;
  * information of single commits, like the date of the commit, the affected files, and the introduced changes, from
  * a commit extractor to a commit analyzer.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class Commit {

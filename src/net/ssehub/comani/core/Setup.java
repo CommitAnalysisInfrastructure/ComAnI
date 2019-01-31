@@ -28,7 +28,7 @@ import net.ssehub.comani.core.Logger.MessageType;
 /**
  * This class reads the configuration file and provides the user-defined properties for other components of the tool.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class Setup {

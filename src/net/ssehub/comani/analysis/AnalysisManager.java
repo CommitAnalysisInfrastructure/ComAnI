@@ -23,7 +23,7 @@ import net.ssehub.comani.utility.InfrastructureUtilities;
 /**
  * This class manages the entire commit analysis process.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class AnalysisManager extends AbstractManager {

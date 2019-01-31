@@ -13,7 +13,7 @@
 /**
  * This package contains all classes for realizing, connecting, and executing different commit extraction plug-ins.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 package net.ssehub.comani.analysis;

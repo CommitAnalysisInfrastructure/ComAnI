@@ -16,7 +16,7 @@ package net.ssehub.comani.core;
  * This class represents the specific type of exception thrown if checking and preparing the properties fails at some
  * point, e.g., due to missing information, false arguments, etc.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class SetupException extends Exception {

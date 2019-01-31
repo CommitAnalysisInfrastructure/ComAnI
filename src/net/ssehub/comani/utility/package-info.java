@@ -14,7 +14,7 @@
  * This package contains all utility classes providing methods, which are commonly used by infrastructure and plug-ins
  * classes.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 package net.ssehub.comani.utility;

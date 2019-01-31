@@ -13,7 +13,7 @@
 /**
  * This package contains all classes of the internal data model, in particular, for representing and managing commits.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 package net.ssehub.comani.data;

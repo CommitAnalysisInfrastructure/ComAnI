@@ -24,7 +24,7 @@ import net.ssehub.comani.utility.FileUtilities;
  * creating {@link Commit} objects based on their CDMS-elements. CDMS stands for <b>C</b>omAnI <b>D</b>ata <b>M</b>odel
  * <b>S</b>erialization, which is a built-in format for caching extracted commits.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class CommitSerializer {

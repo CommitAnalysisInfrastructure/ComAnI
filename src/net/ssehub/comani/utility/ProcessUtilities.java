@@ -25,7 +25,7 @@ import net.ssehub.comani.core.Logger.MessageType;
  * This class provides utility methods for executing commands as external {@link Process} and returning corresponding
  * {@link ExecutionResult}s.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class ProcessUtilities {
@@ -69,7 +69,7 @@ public class ProcessUtilities {
      * <b>error output</b> data provided by this subprocess, the <b>possible exception</b> thrown during the execution
      * of the subprocess, and the <b>exit value</b> of the subprocess.
      * 
-     * @author Christian Kröher
+     * @author Christian Kroeher
      *
      */
     public class ExecutionResult {

@@ -15,7 +15,7 @@ package net.ssehub.comani.data;
 /**
  * This interface declares the methods a {@link CommitQueue} has to implement for its use by a commit extractor.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public interface IExtractionQueue {

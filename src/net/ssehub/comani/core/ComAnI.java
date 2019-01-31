@@ -25,7 +25,7 @@ import net.ssehub.comani.utility.InfrastructureUtilities;
 /**
  * The main class of this tool for preparing and starting the internal processes.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class ComAnI {

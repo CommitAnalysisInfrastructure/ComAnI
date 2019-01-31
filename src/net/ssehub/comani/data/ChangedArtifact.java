@@ -21,7 +21,7 @@ import java.util.List;
  * belonging to the diff header (general information about the artifact, the number of changed lines, etc.) and the
  * other contains the actual contents of the artifact including the changed lines.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class ChangedArtifact {

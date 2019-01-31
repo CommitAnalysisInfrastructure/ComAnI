@@ -31,7 +31,7 @@ import net.ssehub.comani.utility.InfrastructureUtilities;
 /**
  * This class manages the entire commit extraction process.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 public class ExtractionManager extends AbstractManager {

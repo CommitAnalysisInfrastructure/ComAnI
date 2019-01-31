@@ -13,7 +13,7 @@
 /**
  * Main package containing the core classes of this tool.
  * 
- * @author Christian Kröher
+ * @author Christian Kroeher
  *
  */
 package net.ssehub.comani.core;

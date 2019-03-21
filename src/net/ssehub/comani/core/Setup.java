@@ -17,7 +17,8 @@ import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -605,16 +606,8 @@ public class Setup {
         // Get the simply analyzer class name, which is the part of the full class name after the last "."
         String analyzerSimpleClassName = analyzerClassName.substring(analyzerClassName.lastIndexOf(".") + 1);
         // Get current date and time
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        // Create the full sub-directory name
-        String analysisResultsSubDirectoryName = analyzerSimpleClassName + "-Results_" 
-                + calendar.get(Calendar.YEAR) + "-" 
-                + calendar.get(Calendar.MONTH) + "-" 
-                + calendar.get(Calendar.DAY_OF_MONTH) + "_" 
-                + calendar.get(Calendar.HOUR_OF_DAY) + "-" 
-                + calendar.get(Calendar.MINUTE) + "-" 
-                + calendar.get(Calendar.SECOND);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String analysisResultsSubDirectoryName = analyzerSimpleClassName + "-Results_" + dateFormat.format(new Date());
         // Create the sub-directory
         File analysisResultsSubDirectory = new File(analysisResultsDirectory, analysisResultsSubDirectoryName);
         if (analysisResultsSubDirectory.mkdir()) {

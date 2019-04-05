@@ -9,6 +9,7 @@ The [ComAnI Guide](/guide/ComAnI_Guide.pdf) provides more information about the 
 - [GitCommitExtractor](https://github.com/CommitAnalysisInfrastructure/GitCommitExtractor)
 - [SvnCommitExtractor](https://github.com/CommitAnalysisInfrastructure/SvnCommitExtractor)
 - [VariabilityChangeAnalyzer](https://github.com/CommitAnalysisInfrastructure/VariabilityChangeAnalyzer)
+- [DeadCodeChangeAnalyzer](https://github.com/CommitAnalysisInfrastructure/DeadCodeChangeAnalyzer)
 
 ## Installation
 Download the [ComAnI.jar](/release/ComAnI.jar) file from the release directory and save it to a directory of your choice on your machine.

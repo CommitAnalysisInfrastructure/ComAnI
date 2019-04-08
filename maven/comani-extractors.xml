@@ -18,7 +18,7 @@
 
 	<modules>
 		<module>../../GitCommitExtractor</module>
-		<!-- <module>../../SvnCommitExtractor</module> -->
+		<module>../../SvnCommitExtractor</module>
 	</modules>
 
 	<dependencies>

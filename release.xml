@@ -11,6 +11,7 @@
 	<property name="gitcommitextractor.dir" location="../GitCommitExtractor"/>
 	<property name="svncommitextractor.dir" location="../SvnCommitExtractor"/>
 	<property name="variabilitychangeanalyzer.dir" location="../VariabilityChangeAnalyzer"/>
+	<property name="deadcodechangeanalyzer.dir" location="../DeadCodeChangeAnalyzer"/>
 	
 	<property name="release.dir" location ="release"/>
 	<property name="release.filename" value="ComAnI.zip"/>
@@ -20,6 +21,7 @@
     	<ant inheritAll="false" antfile="${gitcommitextractor.dir}/${build.file.name}" target="${build.target.name}"/>
     	<ant inheritAll="false" antfile="${svncommitextractor.dir}/${build.file.name}" target="${build.target.name}"/>
     	<ant inheritAll="false" antfile="${variabilitychangeanalyzer.dir}/${build.file.name}" target="${build.target.name}"/>
+    	<ant inheritAll="false" antfile="${deadcodechangeanalyzer.dir}/${build.file.name}" target="${build.target.name}"/>
     </target>
     
     <!-- Create full release archive -->
@@ -35,6 +37,7 @@
             <fileset dir="${gitcommitextractor.dir}/${release.dir.name}" includes="*.jar"/>
         	<fileset dir="${svncommitextractor.dir}/${release.dir.name}" includes="*.jar"/>
             <fileset dir="${variabilitychangeanalyzer.dir}/${release.dir.name}" includes="*.jar"/>
+        	<fileset dir="${deadcodechangeanalyzer.dir}/${release.dir.name}" includes="*.jar"/>
         </zip>
     </target>
     

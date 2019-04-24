@@ -6,26 +6,23 @@ All maven-parent-poms are inside this directory. They're published in a [tempora
 
 ComAnI implements a inheterance structure:
 ```
-comani-project (parent)
-├── comani-analyses (parent)
-│   └── comani-analyses-variabilitychange
-├── comani-extractors (parent)
-│   ├── comani-extractor-git
-│   └── comani-extractor-svn
+comani-project (project parent - no submodules defined)
+├── comani-extractir-svn
+├── comani-extractor-git
 └── comani-structure
 ```
+- comani-project: Defines global settings for CommitAnalysisInfrastructure like the java version or encoding to use. 
+- comani-extractor-git: Standalone project for extracting Git commits. See [GitCommitExtractor](https://github.com/CommitAnalysisInfrastructure/GitCommitExtractor)
+- comani-extractor-svn: Standalone project for extracting SVN commits. See [SvnCommitExtractor](https://github.com/CommitAnalysisInfrastructure/SvnCommitExtractor)
 
 *Be aware. The maven artifact names does not match with the repository names.*
 
-- comani-project: Defines global settings for CommitAnalysisInfrastructure like the java version or encoding to use. 
-- comani-extractors: Defines the dependency to comani-structure and all offical child modules (git/svn). 
-- comani-analyses: Defines the dependency to comani-structure and all offical child modules.
 
 ### Deploy 
 
 See https://github.com/ssedevelopment/comani-mvn-repo for published pom files. 
 
-If you modify a project file you should publish them into the maven repository. 
+If you modify a project file, you should publish them into the maven repository. 
 
 ```
 mvn -f <project-xml-file> deploy
@@ -38,8 +35,9 @@ Then commit and push the changes.
 ### Build
 
 In order to build a full release you can just build the "comani-project". 
-A flat file structure is required which means, all other project are side by side in the same directory as ComAnI/comani-structure. 
+A flat file structure is required which means, all other project are side by side in the same directory as ComAnI/comani-structure. There is an additional project `comani-build` which builds all modules. It is an additional layer only for build purposes.
 
+Directory structure:
 ```
 ├── ComAnI
 │   └── maven
@@ -48,10 +46,8 @@ A flat file structure is required which means, all other project are side by sid
 └── SvnCommitExtractor
 ```
 
-Then run a maven task like `package` on comani-project.
+Then run a maven task like `package` on comani-build.
 
 ```
-mvn -f comani-project package
+mvn -f comani-build.pom package
 ```
-
-

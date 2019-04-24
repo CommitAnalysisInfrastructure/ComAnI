@@ -5,18 +5,13 @@
 
 	<groupId>net.ssehub.comani</groupId>
 	<artifactId>comani-project</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>pom</packaging>
-
-	<modules>
-	    <module>../../ComAnI</module>
-		<module>./comani-extractors.xml</module>
-		<!-- <module>./comani-analyses.xml</module> -->
-	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<runSuite>**/AllTests.class</runSuite>
 	</properties>
 
 	<dependencies>
@@ -35,11 +30,20 @@
 			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Test coverage through jacoco -->
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.3</version>
+			<type>maven-plugin</type>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- Defines the used java version regardless of the local settings
-				 The JDK for the specified java version must be installed! --> 
+			<!-- Defines the used java version regardless of the local settings The 
+				JDK for the specified java version must be installed! -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
@@ -49,31 +53,63 @@
 				</configuration>
 			</plugin>
 			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-javadoc-plugin</artifactId>
-			  <version>3.1.0</version>
-			  <executions>
-				<execution>
-				  <id>attach-javadocs</id>
-				  <goals>
-					<goal>jar</goal>
-				  </goals>
-				</execution>
-			  </executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
-			<!-- Calls the source:jar goal from the source plugin during the package phase -->
+			<!-- Calls the source:jar goal from the source plugin during the package 
+				phase -->
 			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-source-plugin</artifactId>
-			  <version>3.0.1</version>
-			  <executions>
-				<execution>
-				  <id>attach-sources</id>
-				  <goals>
-					<goal>jar</goal>
-				  </goals>
-				</execution>
-			  </executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<includes>
+						<include>${runSuite}</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<!-- Run jacoco test coverage during test phase -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

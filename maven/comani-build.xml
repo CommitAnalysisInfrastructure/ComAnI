@@ -6,7 +6,7 @@
 	<parent>
 	    <groupId>net.ssehub.comani</groupId>
 	    <artifactId>comani-project</artifactId>
-	    <version>1.0.0</version>
+	    <version>1.0.1</version>
 	</parent>
 	
 	<groupId>net.ssehub.comani</groupId>
@@ -19,4 +19,17 @@
 		<module>../../SvnCommitExtractor</module>
 		<!-- <module>./comani-analyses.xml</module> -->
 	</modules>
+
+	<repositories>
+		<repository>
+		    <id>mvn-repo</id>
+		    <url>https://raw.githubusercontent.com/ssedevelopment/comani-mvn-repo/master</url>
+		    <releases>
+		    	<enabled>true</enabled>
+		    </releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

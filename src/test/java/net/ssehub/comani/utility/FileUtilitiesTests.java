@@ -33,7 +33,7 @@ public class FileUtilitiesTests {
     /**
      * Specifies a simple test content which will written into a file.
      */
-    private static final String TEST_FILE_CONTENT = "Test \n }{ \n #öüßö";
+    private static final String TEST_FILE_CONTENT = "Test \n }{ \n #ï¿½ï¿½ï¿½ï¿½";
     
     /**
      * TemporaryFolder JUnit rule. JUnit does automatic cleanup after tests.
@@ -137,7 +137,7 @@ public class FileUtilitiesTests {
         
         for (int i = 0; i < extractedContent.size(); i++) {
             boolean equal = extractedContent.get(i).equals(expectedContent[i]);
-             assertTrue("Content have to be the same." , equal);
+            assertTrue("Content have to be the same." , equal);
         }
     }
     

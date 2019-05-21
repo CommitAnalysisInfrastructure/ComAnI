@@ -6,8 +6,8 @@
 	<property name="release.dir.name" value="release"/>
 	
 	<property name="comani.dir" location="${basedir}"/>
-	<!-- <property name="config.dir" location="config"/> Disabled for now -->
 	<property name="guide.dir" location="guide"/>
+	<property name="templates.dir" location="templates"/>
 	<property name="gitcommitextractor.dir" location="../GitCommitExtractor"/>
 	<property name="svncommitextractor.dir" location="../SvnCommitExtractor"/>
 	<property name="variabilitychangeanalyzer.dir" location="../VariabilityChangeAnalyzer"/>
@@ -29,8 +29,8 @@
         <zip destfile="${release.dir}/${release.filename}">
             <!-- Include the deployable ComAnI.jar -->
             <fileset dir="${release.dir}" includes="*.jar"/>
-            <!-- Include the example properties defining ComAnI instances -->
-            <!-- <fileset dir="${config.dir}" includes="*.properties"/> Disabled for now -->
+            <!-- Include the properties template(s)-->
+            <fileset dir="${templates.dir}" includes="*.properties"/>
             <!-- Include the guide -->
             <fileset dir="${guide.dir}" includes="*.pdf"/>
             <!-- Include available plug-ins -->

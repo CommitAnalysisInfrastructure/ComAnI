@@ -96,7 +96,7 @@ public class ComAnI {
         File pluginsDirectory = new File(pluginsDirectoryPath);
         InfrastructureUtilities.getInstance().setPluginsDirectory(pluginsDirectory);
         // Check for existence and validity of max. number of elements is done in setup already
-        int maxCommits = (int) coreProperties.get(Setup.PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS);
+        int maxCommits = Integer.parseInt(coreProperties.get(Setup.PROPERTY_CORE_COMMIT_QUEUE_MAX_ELEMENTS).toString());
         CommitQueue commitQueue = new CommitQueue(maxCommits);
         ExtractionManager extractionManager = 
                 new ExtractionManager(coreProperties.getProperty(Setup.PROPERTY_CORE_OS),

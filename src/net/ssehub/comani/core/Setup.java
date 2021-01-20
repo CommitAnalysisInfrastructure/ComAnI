@@ -173,7 +173,7 @@ public class Setup {
      * @return the singleton instance of this class; never <code>null</code>.
      * @throws SetupException if preparing the {@link Setup} fails due to missing or false information
      */
-    static Setup getInstance(String[] args) throws SetupException {
+    public static Setup getInstance(String[] args) throws SetupException {
         if (instance == null) {
             instance = new Setup(args);
             instance.init(args);
@@ -190,7 +190,7 @@ public class Setup {
      * @return the singleton instance of this class; never <code>null</code>.
      * @throws SetupException if {@link #getInstance(String[])} was not called before
      */
-    static Setup getInstance() throws SetupException {
+    public static Setup getInstance() throws SetupException {
         if (instance == null) {
             throw new SetupException("No setup available due to missing initialization");
         }
@@ -641,7 +641,7 @@ public class Setup {
      * 
      * @return the core properties for setting up this tools; never <code>null</code> but may be empty
      */
-    Properties getCoreProperties() {
+    public Properties getCoreProperties() {
         return coreProperties;
     }
     
@@ -651,7 +651,7 @@ public class Setup {
      * @return the extraction properties for setting up the extraction process and the extractor in use;
      *         never <code>null</code> but may be empty
      */
-    Properties getExtractionProperties() {
+    public Properties getExtractionProperties() {
         return extractionProperties;
     }
     
@@ -661,7 +661,7 @@ public class Setup {
      * @return the analysis properties for setting up the analysis process and the analyzer in use;
      *         never <code>null</code> but may be empty
      */
-    Properties getAnalysisProperties() {
+    public Properties getAnalysisProperties() {
         return analysisProperties;
     }
     
@@ -671,7 +671,7 @@ public class Setup {
      * @return the string containing a particular commit or <code>null</code> if the tool is not used in
      *         interactive mode
      */
-    String getCommitString() {
+    public String getCommitString() {
         return commitString;
     }
 }

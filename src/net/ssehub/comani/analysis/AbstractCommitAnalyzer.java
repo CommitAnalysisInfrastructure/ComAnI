@@ -16,6 +16,7 @@ import java.util.Properties;
 
 import net.ssehub.comani.core.Logger;
 import net.ssehub.comani.core.Setup;
+import net.ssehub.comani.data.Commit;
 import net.ssehub.comani.data.IAnalysisQueue;
 
 /**
@@ -71,11 +72,23 @@ public abstract class AbstractCommitAnalyzer {
     }
 
     /**
-     * Starts this commit analyzer.
+     * Starts this commit analyzer and analyzes each commit available from the {@link #commitQueue} until that queue is
+     * closed. The management of the analysis result is up to the specific implementation of this method.
      * 
      * @return <code>true</code> if analyzing the commits was successful; <code>false</code> otherwise
      */
     public abstract boolean analyze();
+    
+    /**
+     * Starts this commit analyzer, analyzes the given commit and returns the corresponding analysis result.
+     * 
+     * @param commit the commit to analyze
+     * @return the result of analyzing the given commit or <code>null</code>, if this method is realized by the specific
+     *         commit analyzer or the analysis fails
+     */
+    public AnalysisResult analyze(Commit commit) {
+        return null;
+    }
     
     /**
      * Checks if the given operating system is supported by this commit analyzer.

@@ -129,7 +129,7 @@ public class Logger {
      * 
      * @param newLogLevel the new log level number as a string
      */
-    void setLogLevel(String newLogLevel) {
+    public void setLogLevel(String newLogLevel) {
         if (newLogLevel != null && !newLogLevel.isEmpty()) {
             try {
                 int logLevelNumber = Integer.parseInt(newLogLevel);

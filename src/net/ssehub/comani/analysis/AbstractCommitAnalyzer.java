@@ -86,7 +86,7 @@ public abstract class AbstractCommitAnalyzer {
      * @return the result of analyzing the given commit or <code>null</code>, if this method is realized by the specific
      *         commit analyzer or the analysis fails
      */
-    public AnalysisResult analyze(Commit commit) {
+    public AbstractAnalysisResult analyze(Commit commit) {
         return null;
     }
     

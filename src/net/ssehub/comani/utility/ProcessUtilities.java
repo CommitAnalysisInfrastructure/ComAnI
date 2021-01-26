@@ -328,7 +328,8 @@ public class ProcessUtilities {
             String line = "";
             try {
                 while ((line = bufferedReader.readLine()) != null) {
-                    outputBuffer.append(line + "\n");
+                    outputBuffer.append(line);
+                    outputBuffer.append(System.lineSeparator());
                 }
                 streamData = outputBuffer.toString();
             } catch (IOException e) {

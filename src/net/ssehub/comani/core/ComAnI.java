@@ -126,20 +126,25 @@ public class ComAnI {
      * Prints a message to the console describing the usage of this tool.
      */
     private static void showUsage() {
-        System.out.println("\n\n##################################################################");
+        System.out.println(System.lineSeparator());
+        System.out.println("##################################################################");
         System.out.println("#                                                                #");
         System.out.println("#              [Com]mit [An]alysis [I]nfrastructure              #");
         System.out.println("#                                                                #");
-        System.out.println("##################################################################\n");
-        System.out.println("Usage: java -jar ComAnI.jar [FILE_PATH] [-i]\n");
+        System.out.println("##################################################################");
+        System.out.println("");
+        System.out.println("Usage: java -jar ComAnI.jar [FILE_PATH] [-i]");
+        System.out.println("");
         System.out.println("  [FILE_PATH]  The path to the properties file defining the setup");
         System.out.println("               of the infrastructure.");
-        System.out.println("               MANDATORY\n");
+        System.out.println("               MANDATORY");
+        System.out.println("");
         System.out.println("  -i           Enables the interactive mode, in which a single");
         System.out.println("               commit is read directly from the console. The end");
         System.out.println("               of the commit has to be indicated by a line");
         System.out.println("               containing \"!q!\" only.");
-        System.out.println("               OPTIONAL\n");
+        System.out.println("               OPTIONAL");
+        System.out.println("");
         System.out.println("Example: java -jar ComAnI.jar C:\\test.properties -i");
     }
 }

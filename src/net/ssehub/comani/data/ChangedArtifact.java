@@ -143,7 +143,7 @@ public class ChangedArtifact {
         StringBuilder changedArtifactStringBuilder = new StringBuilder();
         // Intro: name and path
         changedArtifactStringBuilder.append(artifactName + "@" + artifactPath);
-        changedArtifactStringBuilder.append("\n");
+        changedArtifactStringBuilder.append(System.lineSeparator());
         // First block: diff header
         String blockSingleString = listToString(diffHeader);
         if (!blockSingleString.isEmpty()) {
@@ -152,7 +152,7 @@ public class ChangedArtifact {
         // Second block: content changes
         blockSingleString = listToString(content);
         if (!blockSingleString.isEmpty()) {
-            changedArtifactStringBuilder.append("\n");
+            changedArtifactStringBuilder.append(System.lineSeparator());
             changedArtifactStringBuilder.append(blockSingleString);
         }
         return changedArtifactStringBuilder.toString();
@@ -171,7 +171,8 @@ public class ChangedArtifact {
         if (stringList != null && !stringList.isEmpty()) {
             stringBuilder.append(stringList.get(0));
             for (int i = 1; i < stringList.size(); i++) {
-                stringBuilder.append("\n" + stringList.get(i));
+                stringBuilder.append(System.lineSeparator());
+                stringBuilder.append(stringList.get(i));
             }
         }
         return stringBuilder.toString();

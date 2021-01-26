@@ -242,7 +242,7 @@ public class Logger {
         if (text == null || text.isEmpty()) {
             formattedText = textPrefix + "No further information provided";
         } else {
-            String[] textLines = text.split("\n");
+            String[] textLines = text.split(System.lineSeparator());
             // As the text to format is not null there is at least one line available
             formattedText = mergeAndSplit(textPrefix, textLines[0]);
             if (textLines.length > 1) {
@@ -257,7 +257,7 @@ public class Logger {
                     textPrefix = DESCRIPTION_NEXT_LINE_PREFIX;
                 }
                 while (textLinesCounter < textLines.length) {
-                    formattedTextBuilder.append("\n");
+                    formattedTextBuilder.append(System.lineSeparator());
                     formattedTextBuilder.append(mergeAndSplit(textPrefix, textLines[textLinesCounter]));
                     textLinesCounter++;
                 }
@@ -293,7 +293,7 @@ public class Logger {
                     // Add the part before the split character as individual text line
                     textPart = splittedText.substring(0, charCounter);
                     splittedTextBuilder.append(textPart);
-                    splittedTextBuilder.append("\n");
+                    splittedTextBuilder.append(System.lineSeparator());
                     // Split the part starting with the split character again if needed
                     if (textPrefix.equals(DESCRIPTION_FIRST_LINE_PREFIX)) {
                         // If the description of a log has multiple lines, only the first should contain the arrow
@@ -396,7 +396,7 @@ public class Logger {
             }
             throwableInfo = toLogString(throwable.getCause());
             if (throwableInfo != null) {
-                logString = logString + "\nCaused by " + throwableInfo;
+                logString = logString + System.lineSeparator() + "Caused by " + throwableInfo;
             }
         }
         return logString;

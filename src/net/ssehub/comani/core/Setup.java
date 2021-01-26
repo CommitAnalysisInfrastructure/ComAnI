@@ -236,7 +236,8 @@ public class Setup {
             if (commitLine.equals("!q!")) {
                 break;
             }
-            commitStringBuilder.append(commitLine + "\n");
+            commitStringBuilder.append(commitLine);
+            commitStringBuilder.append(System.lineSeparator());
         }
         commitString = commitStringBuilder.toString();
         inputScanner.close();

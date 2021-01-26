@@ -95,19 +95,21 @@ public class VerificationRelevantResult extends AbstractAnalysisResult {
     @Override
     public String getAnalysisResult() {
         StringBuilder resultStringBuilder = new StringBuilder();
-        resultStringBuilder.append("Verification Analysis Result\n");
+        resultStringBuilder.append("Verification Analysis Result");
+        resultStringBuilder.append(System.lineSeparator());
         resultStringBuilder.append("\tCommit: ");
         resultStringBuilder.append(getCommitIdentifier());
-        resultStringBuilder.append("\n");
+        resultStringBuilder.append(System.lineSeparator());
         resultStringBuilder.append("\tChanged code artifacts:");
         for (String changedCodeArtifact : relevantCodeChanges) {
-            resultStringBuilder.append("\n\t\t");
+            resultStringBuilder.append(System.lineSeparator());
+            resultStringBuilder.append("\t\t");
             resultStringBuilder.append(changedCodeArtifact);
         }
-        resultStringBuilder.append("\n");
+        resultStringBuilder.append(System.lineSeparator());
         resultStringBuilder.append("\tChanged build artifacts:");
         resultStringBuilder.append(relevantBuildChanges);
-        resultStringBuilder.append("\n");
+        resultStringBuilder.append(System.lineSeparator());
         resultStringBuilder.append("\tChanged variability model artifacts:");
         resultStringBuilder.append(relevantVariabilityModelChanges);
         return resultStringBuilder.toString();

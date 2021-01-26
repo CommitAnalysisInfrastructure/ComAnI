@@ -188,19 +188,20 @@ public class Commit {
         String lineBreak = ""; // dynamically changed below depending on whether line break is necessary
         StringBuilder commitStringBuilder = new StringBuilder();
         if (!id.isEmpty()) {
-            commitStringBuilder.append(id + "\n");
+            commitStringBuilder.append(id);
+            commitStringBuilder.append(System.lineSeparator());
         }
         // First block/line: date (whatever date the specific extractor defined; the typically commit author or
         //                   committer date)
         if (!date.isEmpty()) {
             commitStringBuilder.append(date);
-            lineBreak = "\n";
+            lineBreak = System.lineSeparator();
         }
         // Second block: commit header
         if (commitHeader.length > 0) {
             commitStringBuilder.append(lineBreak);
             commitStringBuilder.append(commitHeader[0]);
-            lineBreak = "\n";
+            lineBreak = System.lineSeparator();
             for (int i = 1; i < commitHeader.length; i++) {
                 commitStringBuilder.append(lineBreak);
                 commitStringBuilder.append(commitHeader[i]);
@@ -210,7 +211,7 @@ public class Commit {
         if (!changedArtifacts.isEmpty()) {
             commitStringBuilder.append(lineBreak);
             commitStringBuilder.append(changedArtifacts.get(0).toString());
-            lineBreak = "\n";
+            lineBreak = System.lineSeparator();
             for (int i = 1; i < changedArtifacts.size(); i++) {
                 commitStringBuilder.append(lineBreak);
                 commitStringBuilder.append(changedArtifacts.get(i).toString());

@@ -218,7 +218,8 @@ public class CommitSerializer {
             StringBuilder commitFileContentBuilder = new StringBuilder();
             String commitElementAttributes = commitId + "," + commitDate;
             commitFileContentBuilder.append(CDMS_COMMIT_ELEMENT_START + commitElementAttributes 
-                    + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + "\n\n");
+                    + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + System.lineSeparator()
+                    + System.lineSeparator());
             commitFileContentBuilder.append(createCommitHeaderElement(commitHeader));
             commitFileContentBuilder.append(createChangedArtifactElements(commit.getChangedArtifacts()));
             commitFileContentBuilder.append(CDMS_COMMIT_ELEMENT_END + commitElementAttributes 
@@ -244,11 +245,15 @@ public class CommitSerializer {
      */
     private static String createCommitHeaderElement(String[] commitHeader) {
         StringBuilder commitHeaderElementBuilder = new StringBuilder();
-        commitHeaderElementBuilder.append(CDMS_COMMIT_HEADER_ELEMENT_START + "\n");
+        commitHeaderElementBuilder.append(CDMS_COMMIT_HEADER_ELEMENT_START);
+        commitHeaderElementBuilder.append(System.lineSeparator());
         for (int i = 0; i < commitHeader.length; i++) {
-            commitHeaderElementBuilder.append(commitHeader[i] + "\n");
+            commitHeaderElementBuilder.append(commitHeader[i]);
+            commitHeaderElementBuilder.append(System.lineSeparator());
         }
-        commitHeaderElementBuilder.append(CDMS_COMMIT_HEADER_ELEMENT_END + "\n\n");
+        commitHeaderElementBuilder.append(CDMS_COMMIT_HEADER_ELEMENT_END);
+        commitHeaderElementBuilder.append(System.lineSeparator());
+        commitHeaderElementBuilder.append(System.lineSeparator());
         return commitHeaderElementBuilder.toString();
     }
     
@@ -265,7 +270,8 @@ public class CommitSerializer {
     private static String createChangedArtifactElements(List<ChangedArtifact> changedArtifacts) {
         StringBuilder changedArtifactElementsBuilder = new StringBuilder();
         for (ChangedArtifact changedArtifact : changedArtifacts) {
-            changedArtifactElementsBuilder.append(createChangedArtifactElement(changedArtifact) + "\n");
+            changedArtifactElementsBuilder.append(createChangedArtifactElement(changedArtifact));
+            changedArtifactElementsBuilder.append(System.lineSeparator());
         }
         return changedArtifactElementsBuilder.toString();
     }
@@ -283,11 +289,11 @@ public class CommitSerializer {
         String changedArtifactElementAttributes = changedArtifact.getArtifactPath() + "," 
                 + changedArtifact.getArtifactName();
         changedArtifactElementBuilder.append(CDMS_CHANGED_ARTIFACT_ELEMENT_START + changedArtifactElementAttributes 
-                + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + "\n");
+                + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + System.lineSeparator());
         changedArtifactElementBuilder.append(createChangedArtifactDiffHeaderElement(changedArtifact.getDiffHeader()));
         changedArtifactElementBuilder.append(createChangedArtifactContentElement(changedArtifact.getContent()));
         changedArtifactElementBuilder.append(CDMS_CHANGED_ARTIFACT_ELEMENT_END + changedArtifactElementAttributes
-                + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + "\n");
+                + CDMS_ELEMENT_ATTRIBUTES_CLOSE_CHARACTER + CDMS_ELEMENT_CLOSE_CHARACTER + System.lineSeparator());
         return changedArtifactElementBuilder.toString();
     }
     
@@ -303,11 +309,14 @@ public class CommitSerializer {
      */
     private static String createChangedArtifactDiffHeaderElement(List<String> diffHeader) {
         StringBuilder changedArtifactDiffHeaderElementBuilder = new StringBuilder();
-        changedArtifactDiffHeaderElementBuilder.append(CDMS_CHANGED_ARTIFACT_DIFF_HEADER_START + "\n");
+        changedArtifactDiffHeaderElementBuilder.append(CDMS_CHANGED_ARTIFACT_DIFF_HEADER_START);
+        changedArtifactDiffHeaderElementBuilder.append(System.lineSeparator());
         for (String diffHeaderLine : diffHeader) {
-            changedArtifactDiffHeaderElementBuilder.append(diffHeaderLine + "\n");
+            changedArtifactDiffHeaderElementBuilder.append(diffHeaderLine);
+            changedArtifactDiffHeaderElementBuilder.append(System.lineSeparator());
         }
-        changedArtifactDiffHeaderElementBuilder.append(CDMS_CHANGED_ARTIFACT_DIFF_HEADER_END_PATTERN + "\n");
+        changedArtifactDiffHeaderElementBuilder.append(CDMS_CHANGED_ARTIFACT_DIFF_HEADER_END_PATTERN);
+        changedArtifactDiffHeaderElementBuilder.append(System.lineSeparator());
         return changedArtifactDiffHeaderElementBuilder.toString();
     }
     
@@ -323,11 +332,14 @@ public class CommitSerializer {
      */
     private static String createChangedArtifactContentElement(List<String> content) {
         StringBuilder changedArtifactContentElementBuilder = new StringBuilder();
-        changedArtifactContentElementBuilder.append(CDMS_CHANGED_ARTIFACT_CONTENT_START_PATTERN + "\n");
+        changedArtifactContentElementBuilder.append(CDMS_CHANGED_ARTIFACT_CONTENT_START_PATTERN);
+        changedArtifactContentElementBuilder.append(System.lineSeparator());
         for (String contentLine : content) {
-            changedArtifactContentElementBuilder.append(contentLine + "\n");
+            changedArtifactContentElementBuilder.append(contentLine);
+            changedArtifactContentElementBuilder.append(System.lineSeparator());
         }
-        changedArtifactContentElementBuilder.append(CDMS_CHANGED_ARTIFACT_CONTENT_END_PATTERN + "\n");
+        changedArtifactContentElementBuilder.append(CDMS_CHANGED_ARTIFACT_CONTENT_END_PATTERN);
+        changedArtifactContentElementBuilder.append(System.lineSeparator());
         return changedArtifactContentElementBuilder.toString();
     }
     

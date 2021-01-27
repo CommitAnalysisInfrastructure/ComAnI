@@ -56,7 +56,7 @@ public class AnalysisManager extends AbstractManager {
      * @param operatingSystem the name of the operating system on which the tool is currently executed
      * @param versionControlSystem the name of the version control system from which the commits are extracted
      * @param analysisProperties the properties of the properties file defining the analysis process and the
-     *        configuration of the analyzer in use; all properties, which start with the prefix "<tt>analysis.</tt>"
+     *        configuration of the analyzer in use; all properties, which start with the prefix "<i>analysis.</i>"
      * @param commitQueue the {@link CommitQueue} for requesting extracted commits
      */
     public AnalysisManager(String operatingSystem, String versionControlSystem, Properties analysisProperties,

@@ -52,8 +52,8 @@ public abstract class AbstractManager extends Thread {
      * shall be saved. This properties object contains all properties defined in the properties file, which start
      * with the prefix:
      * <ul>
-     * <li> "<tt>extraction.</tt>" for extraction properties and
-     * <li> "<tt>analysis.</tt>" for analysis properties
+     * <li> "<i>extraction.</i>" for extraction properties and
+     * <li> "<i>analysis.</i>" for analysis properties
      * </ul>
      * Extraction properties will not be available for analyses and vice-versa.
      */

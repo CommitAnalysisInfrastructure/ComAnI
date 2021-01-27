@@ -72,7 +72,7 @@ public class ExtractionManager extends AbstractManager {
      * @param operatingSystem the name of the operating system on which the tool is currently executed
      * @param versionControlSystem the name of the version control system from which the commits shall be extracted
      * @param extractionProperties the properties of the properties file defining the extraction process and the
-     *        configuration of the extractor in use; all properties, which start with the prefix "<tt>extraction.</tt>"
+     *        configuration of the extractor in use; all properties, which start with the prefix "<i>extraction.</i>"
      * @param commitQueue the {@link CommitQueue} for sending extracted commits to an analyzer
      * @param commit the content of a single commit, which shall be extracted to an internal 
      *        {@link net.ssehub.comani.data.Commit} for analysis; can be <code>null</code>

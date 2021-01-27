@@ -126,7 +126,7 @@ public class Setup {
     /**
      * The core properties for setting up this tool, e.g., the operating system, the number of available processors, or
      * the path to the directory, in which the extractor and analyzer plug-ins are located. In general, this properties
-     * object contains all properties defined in the properties file, which start with the prefix "<tt>core.</tt>".
+     * object contains all properties defined in the properties file, which start with the prefix "<i>core.</i>".
      * 
      */
     private Properties coreProperties;
@@ -134,7 +134,7 @@ public class Setup {
     /**
      * The properties determining the extraction process, e.g., the fully-qualified class name of the extractor to use,
      * or the path to the directory, in which extracted commits shall be saved. In general, this properties object
-     * contains all properties defined in the properties file, which start with the prefix "<tt>extraction.</tt>".
+     * contains all properties defined in the properties file, which start with the prefix "<i>extraction.</i>".
      * <br><br> 
      * <b>Note</b> that these properties are exclusive to the extraction process and the extractor in use. For example,
      * an analysis may not be able to access these properties.
@@ -144,7 +144,7 @@ public class Setup {
     /**
      * The properties determining the analysis process, e.g., the fully-qualified class name of the analyzer to use,
      * or the path to the directory, in which analysis results shall be saved. In general, this properties object
-     * contains all properties defined in the properties file, which start with the prefix "<tt>analysis.</tt>".
+     * contains all properties defined in the properties file, which start with the prefix "<i>analysis.</i>".
      * <br><br> 
      * <b>Note</b> that these properties are exclusive to the analysis process and the analyzer in use. For example,
      * an extractor may not be able to access these properties.

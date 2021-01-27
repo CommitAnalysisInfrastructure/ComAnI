@@ -37,7 +37,7 @@ public abstract class AbstractCommitExtractor {
     /**
      * The properties determining the extraction process, e.g., the fully-qualified class name of the extractor to use,
      * or the path to the directory, in which extracted commits shall be saved. In general, this properties object
-     * contains all properties defined in the properties file, which start with the prefix "<tt>extraction.</tt>".
+     * contains all properties defined in the properties file, which start with the prefix "<i>extraction.</i>".
      */
     protected Properties extractionProperties;
 
@@ -51,7 +51,7 @@ public abstract class AbstractCommitExtractor {
      * Constructs a new instance of this extractor.
      * 
      * @param extractionProperties the properties of the properties file defining the extraction process and the
-     *        configuration of the extractor in use; all properties, which start with the prefix "<tt>extraction.</tt>"
+     *        configuration of the extractor in use; all properties, which start with the prefix "<i>extraction.</i>"
      *        as well as the properties defining the operating system and the version control system
      * @param commitQueue the {@link IExtractionQueue} for transferring commits from an extractor to an analyzer
      * @throws ExtractionSetupException if the extractor is not supporting the current operating or version control

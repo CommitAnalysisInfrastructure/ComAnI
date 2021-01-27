@@ -35,7 +35,7 @@ public abstract class AbstractCommitAnalyzer {
     
     /**
      * The properties determining the analysis process and the analyzer itself. In general, this properties object
-     * contains all properties defined in the properties file, which start with the prefix "<tt>analysis.</tt>".
+     * contains all properties defined in the properties file, which start with the prefix "<i>analysis.</i>".
      */
     protected Properties analysisProperties;
     
@@ -49,7 +49,7 @@ public abstract class AbstractCommitAnalyzer {
      * Constructs a new instance of this analyzer.
      * 
      * @param analysisProperties the properties of the properties file defining the analysis process and the
-     *        configuration of the analyzer in use; all properties, which start with the prefix "<tt>analysis.</tt>"
+     *        configuration of the analyzer in use; all properties, which start with the prefix "<i>analysis.</i>"
      * @param commitQueue the {@link IAnalysisQueue} for transferring commits from an extractor to an analyzer
      * @throws AnalysisSetupException if the analyzer is not supporting the current operating or version control
      *         system

@@ -1,3 +1,48 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: ComAnI_Guide.aux
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ComAnI_Guide.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: abbrv.bst
+Reallocating 'name_of_file' (item size: 1) to 18 items.
 Database file #1: ComAnI_references.bib
+You've used 11 entries,
+            2118 wiz_defined-function locations,
+            565 strings with 5322 characters,
+and the built_in function-call counts, 3337 in all, are:
+= -- 344
+> -- 122
+< -- 8
++ -- 51
+- -- 38
+* -- 167
+:= -- 543
+add.period$ -- 43
+call.type$ -- 11
+change.case$ -- 52
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 133
+empty$ -- 290
+format.name$ -- 38
+if$ -- 749
+int.to.chr$ -- 0
+int.to.str$ -- 11
+missing$ -- 4
+newline$ -- 64
+num.names$ -- 22
+pop$ -- 79
+preamble$ -- 1
+purify$ -- 41
+quote$ -- 0
+skip$ -- 103
+stack$ -- 0
+substring$ -- 136
+swap$ -- 40
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 44
+warning$ -- 0
+while$ -- 31
+width$ -- 13
+write$ -- 140

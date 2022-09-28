@@ -1,13 +1,13 @@
-\babel@toc {english}{}
-\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
-\contentsline {section}{\numberline {2}Overview}{6}{section.2}
-\contentsline {section}{\numberline {3}User Guide}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Installation}{8}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Downloading ComAnI{}}{8}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Satisfying Requirements}{8}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Execution}{9}{subsection.3.2}
-\contentsline {section}{\numberline {4}Developer Guide}{13}{section.4}
-\contentsline {subsection}{\numberline {4.1}Data Model}{13}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Commit Extractor Plug-ins}{13}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Commit Analyzer Plug-ins}{15}{subsection.4.3}
-\contentsline {part}{References}{19}{section*.6}
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}%
+\contentsline {section}{\numberline {2}Overview}{6}{section.2}%
+\contentsline {section}{\numberline {3}User Guide}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Installation}{8}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Downloading ComAnI{}}{8}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Satisfying Requirements}{8}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Execution}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Developer Guide}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Data Model}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Commit Extractor Plug-ins}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Commit Analyzer Plug-ins}{15}{subsection.4.3}%
+\contentsline {part}{References}{19}{section*.5}%

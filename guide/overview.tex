@@ -10,7 +10,7 @@
 	\label{fig:Overview}
 \end{figure}
 
-A \textbf{commit extractor} is a \thetool{} plug-in, which is responsible for the extraction of commits and their provision for the commit analysis as elements of the internal data. A commit extractor typically supports three extraction variants\footnote{While the respective methods need to be implemented by each commit extractor, developers are free to realize the required algorithms. Hence, we cannot guaranteed that all extractors support all extraction variants. We recommend reading the description of the desired commit extractor for more information.} depending on the given sources from which the commits shall be extracted:
+A \textbf{commit extractor} is a \thetool{} plug-in, which is responsible for the extraction of commits and their provision for the commit analysis as elements of the internal data. A commit extractor typically supports three extraction variants\footnote{While the respective methods need to be implemented by each commit extractor, developers are free to realize the required algorithms. Hence, we cannot guarantee that all extractors support all extraction variants. We recommend reading the description of the desired commit extractor for more information.} depending on the given sources from which the commits shall be extracted:
 
 \begin{itemize}
 \item \textit{Full repository extraction}: this variant forces the extraction of all commits of a software repository. This requires the definition of the location of the target repository as part of the configuration file.

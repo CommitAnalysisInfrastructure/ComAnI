@@ -16,7 +16,7 @@ The directory to which the \thetool{-plug-ins} are extracted in step 5 above is 
 
 \subsubsection{Satisfying Requirements}
 \label{sec:Requirements}
-The execution of \thetool{} requires the installation of Java 8 or higher (or equivalents, like OpenJDK). The required steps for this installation are operating system dependent Hence, we first describe the necessary steps for Ubuntu and then for Windows below.
+The execution of \thetool{} requires the installation of Java 11 or higher (or equivalents, like OpenJDK). The required steps for this installation are operating system dependent Hence, we first describe the necessary steps for Ubuntu and then for Windows below.
 
 \textbf{On Ubuntu}, the following steps have to be performed:
 \begin{enumerate}
@@ -24,17 +24,29 @@ The execution of \thetool{} requires the installation of Java 8 or higher (or eq
 	\item Update the apt package index: \clcommand{sudo apt update}
 	\item Install OpenJDK:
 	\begin{enumerate}
-		\item Either the default, if it is OpenJDK 8 or higher: \clcommand{sudo apt install default-jdk}
-		\item Or explicitly OpenJDK 8: \clcommand{sudo apt install openjdk-8-jdk}
+		\item Either the default, if it is OpenJDK 11 or higher: \clcommand{sudo apt install default-jdk}
+		\item Or explicitly OpenJDK 11: \clcommand{sudo apt install openjdk-11-jdk}
 	\end{enumerate}
 	\item Check if the installation was successful by printing the installed Java version: \clcommand{java -version}
 \end{enumerate}
 
 \textbf{On Windows}, the following steps have to be performed:
 \begin{enumerate}
-	\item Go to \url{https://www.java.com/en/download/} (Oracle Java)
-	\item Download the Java Runtime Environment (JRE) for your system\footnote{If you want to develop your own \thetool{-plug-ins}, you need to download and install the Java SE Development Kit (JDK), e.g., here \url{https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}}
-	\item Execute the installer and follow its instructions
+	\item Distribution-dependent installation:
+	\begin{enumerate}
+		\item For Oracle Java:
+		\begin{enumerate}
+			\item Go to \url{https://www.java.com/en/download/} (Oracle Java)
+			\item Download the Java Runtime Environment (JRE) for your system
+			\item Execute the installer and follow its instructions
+		\end{enumerate}
+		\item For OpenJDK:
+		\begin{enumerate}
+			\item Go to \url{https://jdk.java.net/java-se-ri/11}
+			\item Download the RI Binary (build 11+28) Windows/x64 Java Development Kit
+			\item Extract the content of that archive to your favorite location
+		\end{enumerate}
+	\end{enumerate}
 	\item Check if the installation was successful by printing the installed Java version:
 	\begin{enumerate}
 		\item Open the Command Prompt: Hit the Windows-Key or click Start, type \clcommand{cmd} and hit Enter

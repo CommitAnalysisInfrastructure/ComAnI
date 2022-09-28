@@ -1,6 +1,11 @@
 \section{Developer Guide}
 \label{sec:DeveloperGuide}
-Some introduction...
+Developers create their own plug-ins for the main infrastructure.
+Hence, we describe the necessary information about such development in this section.
+However, we focus on developing extractor plug-ins as they must implement different methods and, hence, capabilities.
+The realization of an analysis plug-in is rather straightforward and shares methods with the extractors (explained there in detail).
+Hence, we only outline a new analysis plug-in by a blueprint of the main commit analyzer class.
+For both extractor and analysis plug-ins to be used with the main infrastructure, the respective projects must be exported as a simple Java archive file.
 
 \input{developer-guide_data}
 \input{developer-guide_extraction}

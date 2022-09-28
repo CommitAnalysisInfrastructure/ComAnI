@@ -221,6 +221,11 @@
       <property name="ignoreOverriddenMethods" value="true"/>
     </module>
   </module>
+    <module name="SuppressionCommentFilter">
+    <property name="offCommentFormat" value="checkstyle: stop nested if depth check"/>
+    <property name="onCommentFormat" value="checkstyle: resume nested if depth check"/>
+    <property name="checkFormat" value="NestedIfDepth"/>
+  </module>
   <module name="SuppressionCommentFilter">
     <property name="offCommentFormat" value="checkstyle: stop parameter number check"/>
     <property name="onCommentFormat" value="checkstyle: resume parameter number check"/>
